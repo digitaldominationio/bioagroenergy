@@ -203,20 +203,20 @@ export default function AboutPage() {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <p className="text-gray-600 leading-relaxed font-normal text-[15px] md:text-base font-serif">
-                            Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at Village-Bankbija & 
-                            Saradhapali, Sonepur, Odisha, India and 60 KLPD Ethanol Plant at Village- Aliganj, 
-                            Tehsil-Bareli, Dist- Raisen, Bhopal, Madhya Pradesh, India. 
-                            Odisha plant will be commissioned in September-2024 and Bhopal plant will be 
+                            Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at Village-Bankbija &
+                            Saradhapali, Sonepur, Odisha, India and 60 KLPD Ethanol Plant at Village- Aliganj,
+                            Tehsil-Bareli, Dist- Raisen, Bhopal, Madhya Pradesh, India.
+                            Odisha plant will be commissioned in September-2024 and Bhopal plant will be
                             commissioned in August-2024.
                             <br /><br />
-                            The feed stock proposed to be used would be mainly Broken Rice / 
-                            Damaged rice and Maize to produce Bio-fuel Ethanol. 
-                            BAEPL is planning to produce around 8.60 Crore litres Ethanol per annum 
-                            from these factories. Bio-fuel Ethanol is to be used mainly for 
-                            blending with Petrol by supplying to OMCs (Oil Manufacturing Companies) 
-                            depots across Odissa, Madhya Pradesh and to other States as per the 
-                            requirement of OMC, for which Long Term Offtake Agreements have been 
-                            done with the Oil Companies. The by-products like CO2, 
+                            The feed stock proposed to be used would be mainly Broken Rice /
+                            Damaged rice and Maize to produce Bio-fuel Ethanol.
+                            BAEPL is planning to produce around 8.60 Crore litres Ethanol per annum
+                            from these factories. Bio-fuel Ethanol is to be used mainly for
+                            blending with Petrol by supplying to OMCs (Oil Manufacturing Companies)
+                            depots across Odissa, Madhya Pradesh and to other States as per the
+                            requirement of OMC, for which Long Term Offtake Agreements have been
+                            done with the Oil Companies. The by-products like CO2,
                             DDGS and Fly ash bricks will also be sold in the market.
                         </p>
 
@@ -241,7 +241,7 @@ export default function AboutPage() {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+                        className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 p-4"
                     >
                         <motion.div
                             variants={modalVariants}
@@ -394,7 +394,7 @@ export default function AboutPage() {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                        className="fixed inset-0 z-100 flex items-center justify-center p-4"
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="service-modal-title"
@@ -402,7 +402,7 @@ export default function AboutPage() {
                         {/* Backdrop */}
                         <motion.div
                             variants={backdropVariants}
-                            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+                            className="absolute inset-0 bg-black/40 "
                             onClick={closeServiceModal}
                         />
 

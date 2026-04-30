@@ -373,7 +373,7 @@ export default function HeroCarousel() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/40"
             onClick={toggleModal}
           >
             <motion.div
@@ -493,14 +493,14 @@ export default function HeroCarousel() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-100 flex items-center justify-center p-4"
             role="dialog"
             aria-modal="true"
             aria-labelledby="service-modal-title"
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300"
+              className="absolute inset-0 bg-black/40  transition-opacity duration-300"
               onClick={closeServiceModal}
             />
 
