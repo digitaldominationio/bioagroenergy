@@ -254,17 +254,19 @@ export default function HeroCarousel() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-screen overflow-hidden">
-        <AnimatePresence initial={false}>
+      <main className="w-full overflow-x-hidden">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-screen overflow-hidden bg-black">
+        <AnimatePresence mode="wait">
           {slides.map((slide, index) => (
             index === current && (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 1.05 }}
+                initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.05 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="absolute inset-0"
+                className="absolute inset-0 w-full h-full"
               >
                 <Image
                   src={slide.image}
@@ -273,21 +275,22 @@ export default function HeroCarousel() {
                   className="object-cover"
                   priority={index === 0}
                 />
-                <div className="absolute inset-0 bg-black/10" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                <div className="absolute inset-0 bg-black/30" />
+                
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6">
                   <motion.h3
-                    initial={{ y: 30, opacity: 0 }}
+                    initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    className="text-white text-sm md:text-lg tracking-[3px] uppercase mb-4"
+                    className="text-white text-xs sm:text-sm md:text-lg tracking-[2px] sm:tracking-[3px] uppercase mb-4"
                   >
                     {slide.subtitle}
                   </motion.h3>
                   <motion.h1
-                    initial={{ y: 30, opacity: 0 }}
+                    initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    className="text-white text-3xl md:text-6xl font-bold max-w-4xl"
+                    className="text-white text-2xl sm:text-4xl md:text-6xl font-bold max-w-5xl leading-tight"
                   >
                     {slide.title}
                   </motion.h1>
@@ -297,67 +300,84 @@ export default function HeroCarousel() {
           ))}
         </AnimatePresence>
 
+        {/* Navigation Arrows - Hidden on very small screens for better UX */}
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 p-4 text-white text-2xl hover:bg-black/20 transition z-10"
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 sm:p-4 text-white text-xl sm:text-2xl hover:bg-black/20 transition z-20"
         >
           ❮
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-white text-2xl hover:bg-black/20 transition z-10"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 sm:p-4 text-white text-xl sm:text-2xl hover:bg-black/20 transition z-20"
         >
           ❯
         </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {slides.map((_, i) => (
+            <div 
+              key={i} 
+              className={`h-1 w-6 rounded-full transition-all ${current === i ? "bg-white w-10" : "bg-white/40"}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative w-full py-16 bg-white text-black overflow-hidden">
+      <section id="about" className="relative w-full py-12 md:py-20 bg-white text-black overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Image Column */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <Image
                 src="/img/about.jpg"
-                alt="About"
+                alt="About Bio Agro Energy"
                 width={600}
                 height={400}
-                className="rounded-lg object-cover w-full"
+                className="rounded-lg shadow-xl object-cover w-full h-auto"
               />
             </motion.div>
+
+            {/* Text Column */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h1 className="text-3xl md:text-5xl font-bold mb-6">About Us</h1>
-              <p className="text-gray-700 leading-relaxed font-serif">
-                Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at
-                Village-Bankbija & Saradhapali, Sonepur, Odisha, India and 60
-                KLPD Ethanol Plant at Village- Aliganj, Tehsil-Bareli,
-                Dist- Raisen, Bhopal, Madhya Pradesh, India.
-                Odisha plant will be commissioned in September-2024 and
-                Bhopal plant will be commissioned in August-2024.
-                <br /><br />
-                The feed stock proposed to be used would be mainly Broken Rice /
-                Damaged rice and Maize to produce Bio-fuel Ethanol.
-                BAEPL is planning to produce around 8.60 Crore litres Ethanol per annum from these factories.
-                Bio-fuel Ethanol is to be used mainly for blending with Petrol by supplying to OMCs
-                (Oil Manufacturing Companies) depots across Odissa,
-                Madhya Pradesh and to other States as per the requirement of OMC,
-                for which Long Term Offtake Agreements have been done with the Oil Companies.
-                The by-products like CO2, DDGS and Fly ash bricks will also be sold in the market.
-              </p>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900">About Us</h2>
+              
+               <p className="text-gray-600 leading-relaxed font-normal text-[15px] md:text-base ">
+                            Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at Village-Bankbija &
+                            Saradhapali, Sonepur, Odisha, India and 60 KLPD Ethanol Plant at Village- Aliganj,
+                            Tehsil-Bareli, Dist- Raisen, Bhopal, Madhya Pradesh, India.
+                            Odisha plant will be commissioned in September-2024 and Bhopal plant will be
+                            commissioned in August-2024.
+                            <br /><br />
+                            The feed stock proposed to be used would be mainly Broken Rice /
+                            Damaged rice and Maize to produce Bio-fuel Ethanol.
+                            BAEPL is planning to produce around 8.60 Crore litres Ethanol per annum
+                            from these factories. Bio-fuel Ethanol is to be used mainly for
+                            blending with Petrol by supplying to OMCs (Oil Manufacturing Companies)
+                            depots across Odissa, Madhya Pradesh and to other States as per the
+                            requirement of OMC, for which Long Term Offtake Agreements have been
+                            done with the Oil Companies. The by-products like CO2,
+                            DDGS and Fly ash bricks will also be sold in the market.
+                        </p>
+              
+              
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={toggleModal}
-                className="mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition"
+                className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all"
               >
                 Read More
               </motion.button>
@@ -365,6 +385,7 @@ export default function HeroCarousel() {
           </div>
         </div>
       </section>
+    </main>
 
       {/* Modal - Exactly as shown in the image */}
       <AnimatePresence>

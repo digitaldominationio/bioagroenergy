@@ -202,7 +202,7 @@ export default function AboutPage() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <p className="text-gray-600 leading-relaxed font-normal text-[15px] md:text-base font-serif">
+                        <p className="text-gray-600 leading-relaxed font-normal text-[15px] md:text-base ">
                             Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at Village-Bankbija &
                             Saradhapali, Sonepur, Odisha, India and 60 KLPD Ethanol Plant at Village- Aliganj,
                             Tehsil-Bareli, Dist- Raisen, Bhopal, Madhya Pradesh, India.
