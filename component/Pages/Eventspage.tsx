@@ -65,6 +65,8 @@ export default function Events() {
                     src="/img/bricks-4.png"
                     alt="Events"
                     fill
+                    sizes="100vw"
+                    priority
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
@@ -112,6 +114,7 @@ export default function Events() {
                                 src={img.src}
                                 alt="event"
                                 fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                                 className="object-cover group-hover:scale-110 transition duration-500"
                             />
                         </div>
