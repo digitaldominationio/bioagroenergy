@@ -5,13 +5,15 @@ import "./globals.css";
 export const metadata = {
   title: 'Bio Agro Energy',
   description: 'Bio Agro Energy Pvt. Ltd - Leading Ethanol Manufacturing Company',
+  icons: {
+    icon: '/img/icon2.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/img/favicon.ico" />
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
           rel="stylesheet"

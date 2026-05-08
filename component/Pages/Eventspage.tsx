@@ -10,9 +10,9 @@ export default function Events() {
         { src: "/event-img/innaguration-1.JPG", type: "ice-cream" },
         { src: "/event-img/innaguration-2.JPG", type: "ice-cream" },
         { src: "/event-img/innaguration-3.JPG", type: "ice-cream" },
-        { src: "/event-img/innaguration-4.JPG", type: "ice-cream" },
-        { src: "/event-img/innaguration-5.JPG", type: "ice-cream" },
-        { src: "/event-img/innaguration-6.JPG", type: "ice-cream" },
+        { src: "/event-img/innaguration-4.jpg", type: "ice-cream" },
+        { src: "/event-img/innaguration-5.jpg", type: "ice-cream" },
+        { src: "/event-img/innaguration-6.jpg", type: "ice-cream" },
 
         { src: "/event-img/holi.jpg", type: "chocolate" },
 

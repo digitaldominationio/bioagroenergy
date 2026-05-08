@@ -108,7 +108,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-8 py-4">
         
         {/* Logo */}
-        <Link href="/" className="relative z-[110] shrink-0" onClick={closeMenu}>
+        <Link href="/" className="relative z-[110] shrink-0  " onClick={closeMenu}>
           <Image
             src="/img/logo.png"
             alt="logo"
