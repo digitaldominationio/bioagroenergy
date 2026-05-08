@@ -7,19 +7,19 @@ export default function Events() {
     const [filter, setFilter] = useState("all");
 
     const images = [
-        { src: "/event-img/innaguration.JPG", type: "ice-cream" },
-        { src: "/event-img/innaguration-2.JPG", type: "ice-cream" },
-        { src: "/event-img/innaguration-3.JPG", type: "ice-cream" },
-        { src: "/event-img/innaguration-4.jpg", type: "ice-cream" },
-        { src: "/event-img/innaguration-5.jpg", type: "ice-cream" },
-        { src: "/event-img/innaguration-6.jpg", type: "ice-cream" },
+        { src: "/event-img/innaguration.webp", type: "ice-cream" },
+        { src: "/event-img/innaguration-2.webp", type: "ice-cream" },
+        { src: "/event-img/innaguration-3.webp", type: "ice-cream" },
+        { src: "/event-img/innaguration-4.webp", type: "ice-cream" },
+        { src: "/event-img/innaguration-5.webp", type: "ice-cream" },
+        { src: "/event-img/innaguration-6.webp", type: "ice-cream" },
 
         { src: "/event-img/holi.jpg", type: "chocolate" },
 
-        { src: "/event-img/plant-1.png", type: "cake" },
-        { src: "/event-img/plant-2.jpg", type: "cake" },
-        { src: "/event-img/plant-3.PNG", type: "cake" },
-        { src: "/event-img/plant-4.jpg", type: "cake" },
+        { src: "/event-img/plant-1.webp", type: "cake" },
+        { src: "/event-img/plant-2.webp", type: "cake" },
+        { src: "/event-img/plant-3.webp", type: "cake" },
+        { src: "/event-img/plant-4.webp", type: "cake" },
         { src: "/img/New folder/plant-1.jpg", type: "cake" },
         { src: "/img/New folder/plant-2.jpg", type: "cake" },
         { src: "/img/New folder/plant-3.jpg", type: "cake" },
@@ -44,11 +44,11 @@ export default function Events() {
         { src: "/img/New folder/plant-22.jpg", type: "cake" },
         { src: "/img/New folder/plant-23.jpg", type: "cake" },
 
-        { src: "/event-img/work-1.jpg", type: "juice" },
-        { src: "/event-img/work-2.jpg", type: "juice" },
-        { src: "/event-img/work-3.jpg", type: "juice" },
-        { src: "/event-img/work-4.jpg", type: "juice" },
-        { src: "/event-img/work-5.jpg", type: "juice" },
+        { src: "/event-img/work-1.webp", type: "juice" },
+        { src: "/event-img/work-2.webp", type: "juice" },
+        { src: "/event-img/work-3.webp", type: "juice" },
+        { src: "/event-img/work-4.webp", type: "juice" },
+        { src: "/event-img/work-5.webp", type: "juice" },
     ];
 
     const filteredImages =
