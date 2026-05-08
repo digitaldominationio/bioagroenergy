@@ -7,7 +7,7 @@ export default function Events() {
     const [filter, setFilter] = useState("all");
 
     const images = [
-        { src: "/event-img/innaguration-1.jpg", type: "ice-cream" },
+        { src: "/event-img/innaguration.JPG", type: "ice-cream" },
         { src: "/event-img/innaguration-2.JPG", type: "ice-cream" },
         { src: "/event-img/innaguration-3.JPG", type: "ice-cream" },
         { src: "/event-img/innaguration-4.jpg", type: "ice-cream" },
