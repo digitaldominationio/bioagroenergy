@@ -10,7 +10,7 @@ const team = [
         name: "MR. SIBA NARAYAN SAMANTARAY",
         role: "Managing Director & CEO",
         desc: "Mr. Siba Narayan Samantaray is the Managing Director of Bio Agro Energy Private Limited, a Graduate Engineer with MBA in Finance & Personnel Management and also a Law Graduate. Holds more than 32 years experience in Distillery plants and other related plants.",
-        image: "/img/team-1.jpg",
+        image: "/img/team-01.jpg",
     },
     {
         name: "MR. PURANDARA BABU POTHUGUNTA",
@@ -28,13 +28,13 @@ const team = [
 
 const testimonials = [
     {
-        image: "/img/testimonial-1.jpg",
+        image: "/img/testimonial.jpeg",
         text: "Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed.",
         name: "Client Name",
         role: "Profession",
     },
     {
-        image: "/img/testimonial-2.jpg",
+        image: "/img/testimonial2.png",
         text: "Diam sed sed dolor stet amet eirmod eos labore diam. Rebum elitr dolore et eos labore, stet justo sed est.",
         name: "Client Name",
         role: "Profession",
