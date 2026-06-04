@@ -66,10 +66,10 @@ export default function DDGSPage() {
                             9178456374
                         </a>
                         <br />
-                        BIKRAM PATNAIK :{" "}
-                        <a href="tel:7008598317" className="text-green-600 underline hover:text-green-700 transition-colors">
+                        BIKRAM PATNAIK 
+                        {/* <a href="tel:7008598317" className="text-green-600 underline hover:text-green-700 transition-colors">
                             7008598317
-                        </a>
+                        </a> */}
                     </p>
                 </motion.div>
             </section>
