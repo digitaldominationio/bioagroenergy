@@ -103,6 +103,11 @@ export default function CommunityDevelopment() {
             "/img/community-1.png",
             "/img/community-2.png",
             "/img/community-3.png",
+            "/img/community-4.jpeg",
+            "/img/community-5.jpeg",
+            "/img/community-6.jpeg",
+            
+            "/img/community-7.jpeg"
           ].map((img, i) => (
             <motion.div
               key={i}

@@ -306,6 +306,145 @@ export default function AboutPage() {
                 )}
             </AnimatePresence>
 
+            {/* ================= NEW CO₂ GAS SECTION ================= */}
+           <section className="py-20 bg-white">
+    <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
+        >
+            <div className="grid md:grid-cols-[1.2fr_1fr] gap-0">
+
+                {/* Left side - Image */}
+                <motion.div
+                    variants={fadeInLeft}
+                    className="flex items-center justify-center bg-white p-4 md:p-6"
+                >
+                    <Image
+                        src="/img/co2-gas-banner.jpeg"
+                        alt="CO2 Gas - High Purity Industrial Supply"
+                        width={800}
+                        height={1000}
+                        priority
+                        className="w-full h-auto object-contain rounded-lg"
+                    />
+                </motion.div>
+
+                {/* Right side - Content */}
+                <motion.div
+                    variants={fadeInRight}
+                    className="p-6 md:p-8 lg:p-10 flex flex-col justify-center"
+                >
+                    <div className="mb-2">
+                        <span className="text-green-600 font-semibold text-sm uppercase tracking-wider bg-green-50 px-3 py-1 rounded-full">
+                            Premium Quality
+                        </span>
+                    </div>
+
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">
+                        High Purity <span className="text-green-600">CO₂ Gas</span>
+                    </h2>
+
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                        Premium quality CO₂ gas for diverse industrial applications
+                        with consistent purity and dependable supply. Perfect for
+                        beverage carbonation, welding, fire safety systems, and
+                        chemical processing.
+                    </p>
+
+                    {/* Stats */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
+                            <div className="text-2xl font-bold text-green-600">
+                                &gt;99.9%
+                            </div>
+                            <div className="text-xs text-gray-500">
+                                Purity
+                            </div>
+                        </div>
+
+                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
+                            <div className="text-2xl font-bold text-green-600">
+                                35 TPD
+                            </div>
+                            <div className="text-xs text-gray-500">
+                                Daily Capacity
+                            </div>
+                        </div>
+
+                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
+                            <div className="text-2xl font-bold text-green-600">
+                                Pan India
+                            </div>
+                            <div className="text-xs text-gray-500">
+                                Delivery Network
+                            </div>
+                        </div>
+
+                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
+                            <div className="text-2xl font-bold text-green-600">
+                                Bulk/Cylinder
+                            </div>
+                            <div className="text-xs text-gray-500">
+                                Flexible Supply
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Details */}
+                    <div className="space-y-3 text-sm text-gray-600 border-t pt-5">
+                        <div className="flex items-start gap-2">
+                            <span className="text-green-500 mt-0.5">✓</span>
+                            <span>
+                                <strong className="font-semibold">
+                                    Industries:
+                                </strong>{" "}
+                                Beverage, Steel, Foundries, Welding,
+                                Fire Safety, Chemical, Cold Storage,
+                                Food Processing
+                            </span>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <span className="text-green-500">✓</span>
+                            <span>
+                                <strong className="font-semibold">
+                                    Contact:
+                                </strong>{" "}
+                                RN PANDA – 9937091063
+                            </span>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <span className="text-green-500">✓</span>
+                            <span>
+                                <strong className="font-semibold">
+                                    Email:
+                                </strong>{" "}
+                                purchase.ho@bioagroenergy.in
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Button */}
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => openServiceModal("co2")}
+                        className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
+                        View CO₂ Specifications →
+                    </motion.button>
+                </motion.div>
+
+            </div>
+        </motion.div>
+    </div>
+</section>
+
             {/* ================= SERVICES ================= */}
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-6">
