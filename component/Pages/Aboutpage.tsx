@@ -307,99 +307,110 @@ export default function AboutPage() {
             </AnimatePresence>
 
             {/* ================= NEW CO₂ GAS SECTION ================= */}
-           <section className="py-20 bg-white">
-    <div className="max-w-7xl mx-auto px-6">
+        <section className="py-4 sm:py-8 md:py-16 lg:py-20 bg-white">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
-            className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
+            className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden border border-gray-100"
         >
-            <div className="grid md:grid-cols-[1.2fr_1fr] gap-0">
+            <div className="flex flex-col lg:grid lg:grid-cols-[1.1fr_1fr]">
 
-                {/* Left side - Image */}
+                {/* Left Side - Image */}
                 <motion.div
                     variants={fadeInLeft}
-                    className="flex items-center justify-center bg-white p-4 md:p-6"
+                    className="flex items-center justify-center bg-white px-3 py-2 sm:px-4 sm:py-4 md:p-8 lg:p-10"
                 >
-                    <Image
-                        src="/img/co2-gas-banner.jpeg"
-                        alt="CO2 Gas - High Purity Industrial Supply"
-                        width={800}
-                        height={1000}
-                        priority
-                        className="w-full h-auto object-contain rounded-lg"
-                    />
+                    <div className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl lg:max-w-full mx-auto">
+                        <Image
+                            src="/img/co2-gas-banner.jpeg"
+                            alt="CO2 Gas - High Purity Industrial Supply"
+                            width={800}
+                            height={1000}
+                            priority
+                            className="w-full h-auto object-contain rounded-lg"
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 45vw"
+                        />
+                    </div>
                 </motion.div>
 
-                {/* Right side - Content */}
+                {/* Right Side - Content */}
                 <motion.div
                     variants={fadeInRight}
-                    className="p-6 md:p-8 lg:p-10 flex flex-col justify-center"
+                    className="px-4 py-5 sm:px-6 sm:py-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center"
                 >
-                    <div className="mb-2">
-                        <span className="text-green-600 font-semibold text-sm uppercase tracking-wider bg-green-50 px-3 py-1 rounded-full">
+                    {/* Badge */}
+                    <div className="mb-3">
+                        <span className="inline-block text-green-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-green-50 px-3 py-1 rounded-full">
                             Premium Quality
                         </span>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">
-                        High Purity <span className="text-green-600">CO₂ Gas</span>
+                    {/* Heading */}
+                    <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight mb-4">
+                        High Purity{" "}
+                        <span className="text-green-600">
+                            CO₂ Gas
+                        </span>
                     </h2>
 
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                        Premium quality CO₂ gas for diverse industrial applications
-                        with consistent purity and dependable supply. Perfect for
-                        beverage carbonation, welding, fire safety systems, and
-                        chemical processing.
+                    {/* Description */}
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                        Premium quality CO₂ gas for diverse industrial
+                        applications with consistent purity and dependable
+                        supply. Perfect for beverage carbonation, welding,
+                        fire safety systems, and chemical processing.
                     </p>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
-                            <div className="text-2xl font-bold text-green-600">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
+                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
                                 &gt;99.9%
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs sm:text-sm text-gray-500">
                                 Purity
                             </div>
                         </div>
 
-                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
-                            <div className="text-2xl font-bold text-green-600">
+                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
                                 35 TPD
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs sm:text-sm text-gray-500">
                                 Daily Capacity
                             </div>
                         </div>
 
-                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
-                            <div className="text-2xl font-bold text-green-600">
+                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
                                 Pan India
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs sm:text-sm text-gray-500">
                                 Delivery Network
                             </div>
                         </div>
 
-                        <div className="bg-gray-50 p-4 rounded-lg text-center shadow-sm">
-                            <div className="text-2xl font-bold text-green-600">
+                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
                                 Bulk/Cylinder
                             </div>
-                            <div className="text-xs text-gray-500">
+                            <div className="text-xs sm:text-sm text-gray-500">
                                 Flexible Supply
                             </div>
                         </div>
                     </div>
 
                     {/* Details */}
-                    <div className="space-y-3 text-sm text-gray-600 border-t pt-5">
+                    <div className="space-y-3 text-xs sm:text-sm text-gray-600 border-t pt-4">
                         <div className="flex items-start gap-2">
-                            <span className="text-green-500 mt-0.5">✓</span>
+                            <span className="text-green-500 mt-0.5 flex-shrink-0">
+                                ✓
+                            </span>
                             <span>
-                                <strong className="font-semibold">
+                                <strong className="text-gray-700">
                                     Industries:
                                 </strong>{" "}
                                 Beverage, Steel, Foundries, Welding,
@@ -408,36 +419,52 @@ export default function AboutPage() {
                             </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                            <span className="text-green-500">✓</span>
+                        <div className="flex items-start gap-2">
+                            <span className="text-green-500 flex-shrink-0">
+                                ✓
+                            </span>
                             <span>
-                                <strong className="font-semibold">
+                                <strong className="text-gray-700">
                                     Contact:
                                 </strong>{" "}
-                                RN PANDA – 9937091063
+                                <a
+                                    href="tel:9937091063"
+                                    className="hover:text-green-600"
+                                >
+                                    RN PANDA – 9937091063
+                                </a>
                             </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                            <span className="text-green-500">✓</span>
+                        <div className="flex items-start gap-2">
+                            <span className="text-green-500 flex-shrink-0">
+                                ✓
+                            </span>
                             <span>
-                                <strong className="font-semibold">
+                                <strong className="text-gray-700">
                                     Email:
                                 </strong>{" "}
-                                purchase.ho@bioagroenergy.in
+                                <a
+                                    href="mailto:purchase.ho@bioagroenergy.in"
+                                    className="hover:text-green-600 break-all"
+                                >
+                                    purchase.ho@bioagroenergy.in
+                                </a>
                             </span>
                         </div>
                     </div>
 
                     {/* Button */}
-                    <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => openServiceModal("co2")}
-                        className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
-                    >
-                        View CO₂ Specifications →
-                    </motion.button>
+                    <div className="mt-6">
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => openServiceModal("co2")}
+                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+                        >
+                            View CO₂ Specifications →
+                        </motion.button>
+                    </div>
                 </motion.div>
 
             </div>
