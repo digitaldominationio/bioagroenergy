@@ -9,7 +9,7 @@ import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const slides = [
   {
-    image: "/img/carousel-3.png",
+    image: "/img/carousel.jpeg",
     title: "Bio Agro Energy Pvt. Ltd.",
     subtitle: "Powering Progress, Fueling the Future!",
   },
