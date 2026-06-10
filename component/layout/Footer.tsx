@@ -35,7 +35,7 @@ export default function Footer() {
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.175787465484!2d85.81646127385297!3d20.292989712645255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909121a2b07b7%3A0xd1b39b485fbdc6ff!2sBio%20Agro%20Energy%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1716268769241!5m2!1sen!2sin"
-              className="w-full h-[400px] border-0 shadow-lg"
+              className="w-full h-[400px] border-0 shadow-lg rounded-2xl"
               loading="lazy"
               title="Bio Agro Energy Location Map"
             ></iframe>
@@ -57,22 +57,23 @@ export default function Footer() {
                 {i === 0 && <p>Bhubaneswar</p>}
                 {i === 1 && <p>office@bioagroenergy.in</p>}
                 {i === 2 && <p>0674 - 3500284 / 3500285</p>}
+               
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Main Footer */}
+          {/* Main Footer - 4 Columns */}
           <motion.div
             variants={container}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-10"
+            className="grid md:grid-cols-4 gap-10 "
           >
 
-            {/* Office */}
+            {/* Column 1: Corporate Office */}
             <motion.div variants={fadeUp}>
-              <h5 className=" bg-gradient-to-r from-yellow-200 to-cyan-400 bg-clip-text text-transparent gradient-text uppercase tracking-[3px] mb-4">
+              <h5 className="bg-gradient-to-r from-yellow-200 to-cyan-400 bg-clip-text text-transparent gradient-text uppercase tracking-[3px] mb-4">
                 Corporate Office
               </h5>
 
@@ -101,13 +102,13 @@ export default function Footer() {
               </div>
             </motion.div>
 
-            {/* Plant Locations */}
+            {/* Column 2: Sonepur - Plant Site */}
             <motion.div variants={fadeUp}>
               <h5 className="bg-gradient-to-r from-yellow-200 to-cyan-400 bg-clip-text text-transparent gradient-text uppercase tracking-[3px] mb-4">
                 Sonepur - Plant Site
               </h5>
 
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-300">
                 At: Bankbija & Saradhapali <br />
                 PO: S. Kalapathar <br />
                 PS: Sonepur <br />
@@ -115,7 +116,10 @@ export default function Footer() {
                 Pin: 767017 <br />
                 State: Odisha
               </p>
+            </motion.div>
 
+            {/* Column 3: Bhopal - Plant Site */}
+            <motion.div variants={fadeUp}>
               <h5 className="bg-gradient-to-r from-yellow-200 to-cyan-400 bg-clip-text text-transparent gradient-text uppercase tracking-[3px] mb-4">
                 Bhopal - Plant Site
               </h5>
@@ -129,7 +133,7 @@ export default function Footer() {
               </p>
             </motion.div>
 
-            {/* Products */}
+            {/* Column 4: Our Products */}
             <motion.div variants={fadeUp}>
               <h5 className="bg-gradient-to-r from-yellow-200 to-cyan-400 bg-clip-text text-transparent gradient-text uppercase tracking-[3px] mb-4">
                 Our Products
