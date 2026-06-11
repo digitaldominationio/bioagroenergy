@@ -6,7 +6,6 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
-
 const slides = [
   {
     image: "/img/carousel.jpeg",
@@ -158,6 +157,116 @@ const testimonials = [
   },
 ];
 
+// Staggered word animation component
+function AnimatedWords({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
+  const words = text.split(" ");
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: delay }
+    }
+  };
+  
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      transition: {
+        type: "spring" as const,
+        damping: 12,
+        stiffness: 100
+      }
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      rotate: 1,
+      transition: {
+        type: "spring" as const,
+        damping: 12,
+        stiffness: 100
+      }
+    }
+  };
+
+  return (
+    <motion.span
+      className={`inline-flex flex-wrap ${className}`}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {words.map((word, index) => (
+        <span key={index} className="overflow-hidden inline-block mr-[0.25em] py-[2px]">
+          <motion.span
+            className="inline-block"
+            variants={child}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </motion.span>
+  );
+}
+
+// Staggered character animation component
+function AnimatedLetters({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
+  const letters = Array.from(text);
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.015, delayChildren: delay }
+    }
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring" as const,
+        damping: 20,
+        stiffness: 120
+      }
+    },
+    hidden: {
+      opacity: 0,
+      y: 10,
+      transition: {
+        type: "spring" as const,
+        damping: 20,
+        stiffness: 120
+      }
+    }
+  };
+
+  return (
+    <motion.span
+      className={`inline-flex flex-wrap ${className}`}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          variants={child}
+          className="inline-block"
+          style={{ whiteSpace: letter === " " ? "pre" : "normal" }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
+
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
@@ -253,80 +362,96 @@ export default function HeroCarousel() {
 
   return (
     <>
-      {/* Hero Section */}
-      <main className="w-full overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative w-full min-h-screen overflow-hidden bg-black">
+      {/* Hero Section - Split layout with text on left and image on right */}
+      <section className="relative w-full h-[65vh] md:h-[80vh] min-h-[500px] md:min-h-[650px] overflow-hidden bg-white mt-10 ">
         <AnimatePresence mode="wait">
           {slides.map((slide, index) => (
             index === current && (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7 }}
+                className="absolute inset-0"
               >
-                <Image
-                  src={slide.image}
-                  alt="slide"
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                />
-                <div className="absolute inset-0 bg-black/30" />
-                
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-                  <motion.h3
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                    className="text-white text-xs sm:text-sm md:text-lg tracking-[2px] sm:tracking-[3px] uppercase mb-4"
-                  >
-                    {slide.subtitle}
-                  </motion.h3>
-                  <motion.h1
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                    className="text-white text-2xl sm:text-4xl md:text-6xl font-bold max-w-5xl leading-tight"
-                  >
-                    {slide.title}
-                  </motion.h1>
+                <div className="w-full h-full flex flex-col md:flex-row">
+                  {/* Left Side - Text Content */}
+                  <div className="w-full md:w-[40%] h-[40%] md:h-full bg-white flex flex-col items-center md:items-start justify-center text-center md:text-left px-6 md:px-12 lg:px-16">
+                    <div className="max-w-xl">
+                      <div className="mb-4 flex justify-center md:justify-start">
+                        <AnimatedLetters
+                          text={slide.subtitle}
+                          delay={0.15}
+                          className="text-amber-500 text-xs sm:text-sm md:text-base uppercase tracking-[4px] sm:tracking-[5px] font-semibold"
+                        />
+                      </div>
+                      
+                      <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight select-none">
+                        <AnimatedWords
+                          text={slide.title}
+                          delay={0.35}
+                          className="justify-center md:justify-start"
+                        />
+                      </h1>
+                      
+                      {/* <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.7, duration: 0.6 }}
+                      >
+                        <button className="mt-6 sm:mt-8 inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-amber-500 hover:bg-amber-600 text-black font-semibold text-sm sm:text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 cursor-pointer">
+                          Learn More →
+                        </button>
+                      </motion.div> */}
+                    </div>
+                  </div>
+
+                  {/* Right Side - Image Box */}
+                  <div className="w-full md:w-[60%] h-[60%] md:h-full bg-white flex items-center justify-center p-4 md:p-8 lg:p-12">
+                    <motion.div
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.45, duration: 0.8, type: "spring", stiffness: 80 }}
+                      className="relative w-full h-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] border-4 md:border-8 border-white bg-white aspect-[4/3] md:aspect-auto max-h-[45vh] md:max-h-[75dvh]"
+                    >
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        priority
+                        className="object-cover hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </motion.div>
             )
           ))}
         </AnimatePresence>
 
-        {/* Navigation Arrows - Hidden on very small screens for better UX */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 sm:p-4 text-white text-xl sm:text-2xl hover:bg-black/20 transition z-20"
-        >
-          ❮
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 sm:p-4 text-white text-xl sm:text-2xl hover:bg-black/20 transition z-20"
-        >
-          ❯
-        </button>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+
+        {/* Dot Indicators */}
+        <div className="absolute bottom-5 sm:bottom-6 left-0 right-0 z-20 flex justify-center gap-2.5">
           {slides.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1 w-6 rounded-full transition-all ${current === i ? "bg-white w-10" : "bg-white/40"}`}
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                current === i 
+                  ? "bg-amber-500 w-7 sm:w-8" 
+                  : "bg-gray-400 w-3 sm:w-4 hover:bg-gray-300"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative w-full py-12 md:py-20 bg-white text-black overflow-hidden">
+      <section id="about" className="relative w-full py-12 md:py-20 bg-gray-100 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             {/* Image Column */}
@@ -352,27 +477,26 @@ export default function HeroCarousel() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900">About Us</h2>
-              
-               <p className="text-gray-600 leading-relaxed font-normal text-[15px] md:text-base ">
-                            Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at Village-Bankbija &
-                            Saradhapali, Sonepur, Odisha, India and 60 KLPD Ethanol Plant at Village- Aliganj,
-                            Tehsil-Bareli, Dist- Raisen, Bhopal, Madhya Pradesh, India.
-                            Odisha plant will be commissioned in September-2024 and Bhopal plant will be
-                            commissioned in August-2024.
-                            <br /><br />
-                            The feed stock proposed to be used would be mainly Broken Rice /
-                            Damaged rice and Maize to produce Bio-fuel Ethanol.
-                            BAEPL is planning to produce around 8.60 Crore litres Ethanol per annum
-                            from these factories. Bio-fuel Ethanol is to be used mainly for
-                            blending with Petrol by supplying to OMCs (Oil Manufacturing Companies)
-                            depots across Odissa, Madhya Pradesh and to other States as per the
-                            requirement of OMC, for which Long Term Offtake Agreements have been
-                            done with the Oil Companies. The by-products like CO2,
-                            DDGS and Fly ash bricks will also be sold in the market.
-                        </p>
-              
-              
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">About Us</h2>
+
+              <p className="text-black leading-relaxed font-normal text-[15px] md:text-base">
+                Bio Agro Energy Pvt. Ltd is setting up 200 KLPD Ethanol Plant at Village-Bankbija &
+                Saradhapali, Sonepur, Odisha, India and 60 KLPD Ethanol Plant at Village- Aliganj,
+                Tehsil-Bareli, Dist- Raisen, Bhopal, Madhya Pradesh, India.
+                Odisha plant will be commissioned in September-2024 and Bhopal plant will be
+                commissioned in August-2024.
+                <br /><br />
+                The feed stock proposed to be used would be mainly Broken Rice /
+                Damaged rice and Maize to produce Bio-fuel Ethanol.
+                BAEPL is planning to produce around 8.60 Crore litres Ethanol per annum
+                from these factories. Bio-fuel Ethanol is to be used mainly for
+                blending with Petrol by supplying to OMCs (Oil Manufacturing Companies)
+                depots across Odissa, Madhya Pradesh and to other States as per the
+                requirement of OMC, for which Long Term Offtake Agreements have been
+                done with the Oil Companies. The by-products like CO2,
+                DDGS and Fly ash bricks will also be sold in the market.
+              </p>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -385,9 +509,8 @@ export default function HeroCarousel() {
           </div>
         </div>
       </section>
-    </main>
 
-      {/* Modal - Exactly as shown in the image */}
+      {/* Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -402,7 +525,7 @@ export default function HeroCarousel() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative bg-white rounded-2xl shadow-2xl w-[90%] max-w-3xl max-h-[100vh] overflow-y-auto"
+              className="relative bg-white rounded-2xl shadow-2xl w-[90%] max-w-3xl max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -445,8 +568,8 @@ export default function HeroCarousel() {
         )}
       </AnimatePresence>
 
-      {/* Services Section - UPDATED with clickable image modals */}
-      <section id="service" className="w-full py-16 bg-gray-50">
+      {/* Services Section */}
+      <section id="service" className="w-full py-16 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -463,7 +586,7 @@ export default function HeroCarousel() {
               Sustainable bioenergy solutions driving India's green future & rural prosperity
             </p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {services.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -493,7 +616,6 @@ export default function HeroCarousel() {
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                     <h3 className="text-white text-xl font-semibold">
-
                       {item.title}
                     </h3>
                   </div>
@@ -521,7 +643,7 @@ export default function HeroCarousel() {
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-black/40  transition-opacity duration-300"
+              className="absolute inset-0 bg-black/40 transition-opacity duration-300"
               onClick={closeServiceModal}
             />
 
@@ -560,12 +682,9 @@ export default function HeroCarousel() {
                 </div>
                 <div
                   className="text-gray-700 space-y-5"
-
                   dangerouslySetInnerHTML={{ __html: selectedServiceDetail.description }}
                 />
                 <div dangerouslySetInnerHTML={{ __html: csrNote }} />
-
-
               </div>
             </motion.div>
           </motion.div>
@@ -763,8 +882,7 @@ export default function HeroCarousel() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    className={`relative w-[280px] h-[320px] z-10 shadow-xl ${isEven ? "md:translate-x-20" : "md:-translate-x-20"
-                      }`}
+                    className={`relative w-[280px] h-[320px] z-10 shadow-xl ${isEven ? "md:translate-x-20" : "md:-translate-x-20"}`}
                   >
                     <Image
                       src={member.image}
@@ -781,8 +899,7 @@ export default function HeroCarousel() {
                     className={`z-20 bg-[#dfe3ea] w-[280px] p-8 text-center shadow-lg border-t-4 border-blue-500
                     md:absolute md:top-1/2 md:-translate-y-1/2 
                     ${isEven ? "md:left-[15%]" : "md:right-[15%]"}
-                    mt-[-40px] md:mt-0
-                  `}
+                    mt-[-40px] md:mt-0`}
                   >
                     <h3 className="font-bold text-lg text-gray-800">{member.name}</h3>
                     <p className="text-blue-600 italic text-sm mb-3">{member.role}</p>
@@ -809,9 +926,8 @@ export default function HeroCarousel() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faqs" className="w-full py-20 bg-white">
+      <section id="faqs" className="w-full py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
-          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -822,23 +938,17 @@ export default function HeroCarousel() {
             <h6 className="uppercase text-green-400 font-bold tracking-[4px] text-sm mb-2">
               FAQs
             </h6>
-
             <h1 className="text-4xl md:text-5xl font-bold text-[#2A4365]">
               You Should Know
             </h1>
-
-            {/* Blue decorative underline from image */}
             <div className="relative w-40 h-[2px] bg-blue-950 mx-auto mt-4">
               <div className="absolute top-[4px] left-1/4 right-1/4 h-[2px] bg-blue-950 rounded-full"></div>
             </div>
           </motion.div>
 
-          {/* Content Grid */}
           <div className="grid md:grid-cols-2 relative">
-            {/* Vertical Divider line shown in image */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-blue-950 -translate-x-1/2"></div>
 
-            {/* LEFT COLUMN */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -849,7 +959,6 @@ export default function HeroCarousel() {
               <h3 className="text-3xl font-bold text-[#2A4365] mb-8">
                 Why Switch to Ethanol ?
               </h3>
-
               {[
                 "Renewable fuel from biomass.",
                 "Reduces greenhouse gas emissions.",
@@ -870,7 +979,6 @@ export default function HeroCarousel() {
               ))}
             </motion.div>
 
-            {/* RIGHT COLUMN */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -881,7 +989,6 @@ export default function HeroCarousel() {
               <h3 className="text-3xl font-bold text-[#2A4365] mb-8">
                 Why Choose Us ?
               </h3>
-
               {[
                 "Biodegradable and non-toxic.",
                 "Used in beverages and sanitizers.",
@@ -903,7 +1010,6 @@ export default function HeroCarousel() {
             </motion.div>
           </div>
 
-          {/* Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -967,8 +1073,7 @@ export default function HeroCarousel() {
               <button
                 key={i}
                 onClick={() => setTestimonialIndex(i)}
-                className={`w-3 h-3 rounded-full transition ${i === testimonialIndex ? "bg-green-500" : "bg-gray-300"
-                  }`}
+                className={`w-3 h-3 rounded-full transition ${i === testimonialIndex ? "bg-green-500" : "bg-gray-300"}`}
               />
             ))}
           </div>

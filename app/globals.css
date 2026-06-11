@@ -109,8 +109,11 @@
   background: linear-gradient(135deg, #facc15, #0891b2);
 }
 
-/* Smooth body scroll */
-html {
+/* Smooth body scroll and prevent horizontal overflow */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -157,5 +160,20 @@ body.modal-open {
   }
   100% {
     background-position: 200% 50%;
+  }
+}
+
+/* Add to your global.css or equivalent */
+@media (max-width: 768px) {
+  .hero-image {
+    object-position: center 30% !important; /* Adjust this value to focus on the important part of your image */
+  }
+}
+
+/* For better performance on mobile */
+@media (max-width: 640px) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }
