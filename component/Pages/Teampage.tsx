@@ -121,6 +121,7 @@ export default function Testimonial() {
                     src="/img/carousel-2.jpg"
                     alt="About Background"
                     fill
+                    sizes="100vw"
                     priority
                     className="object-cover"
                 />
@@ -180,6 +181,7 @@ export default function Testimonial() {
                                         src={member.image}
                                         alt={member.name}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     {/* Overlay gradient */}
@@ -253,6 +255,7 @@ export default function Testimonial() {
                              src={currentTestimonial.image}
                              alt={currentTestimonial.name}
                              fill
+                             sizes="100px"
                              className="rounded-full object-cover"
                            />
                          </div>

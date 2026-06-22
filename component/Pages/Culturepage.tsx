@@ -12,6 +12,7 @@ export default function Culture() {
           src="/img/culture-4.png"
           alt="Culture"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/20"></div>
@@ -58,6 +59,7 @@ export default function Culture() {
                 src={img}
                 alt="culture"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover hover:scale-110 transition duration-500"
               />
             </div>

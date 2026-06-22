@@ -12,6 +12,7 @@ export default function CommunityDevelopment() {
                src="/img/bricks-4.png"
                alt="BAEPL"
                fill
+               sizes="100vw"
                className="object-cover"
              />
      

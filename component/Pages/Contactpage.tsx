@@ -31,6 +31,7 @@ export default function Contact() {
           src="/img/bricks-4.png"
           alt="Contact"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />

@@ -9,6 +9,7 @@ function page() {
               src="/img/bricks-4.png"
               alt="Compliance"
               fill
+              sizes="100vw"
               className="object-cover"
             />
     

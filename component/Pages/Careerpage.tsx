@@ -31,6 +31,7 @@ export default function Career() {
           src="/img/bricks-4.png"
           alt="Career"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />

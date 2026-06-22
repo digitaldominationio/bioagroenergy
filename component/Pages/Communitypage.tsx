@@ -29,6 +29,7 @@ export default function CommunityDevelopment() {
           src="/img/community-4.png"
           alt="Community Development"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -118,6 +119,7 @@ export default function CommunityDevelopment() {
                 src={img}
                 alt={`community-${i + 1}`}
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover hover:scale-110 transition duration-500"
               />
             </motion.div>

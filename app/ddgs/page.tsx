@@ -14,6 +14,7 @@ export default function DDGSPage() {
                     src="/img/carousel-2.jpg"
                     alt="About Background"
                     fill
+                    sizes="100vw"
                     priority
                     className="object-cover"
                 />
@@ -92,6 +93,7 @@ export default function DDGSPage() {
                                     src={img}
                                     alt={`ddgs-${index}`}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                     className="object-cover group-hover:scale-110 transition duration-500"
                                 />
                             </motion.div>

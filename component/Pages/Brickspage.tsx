@@ -13,6 +13,7 @@ export default function BricksPage() {
           src="/img/bricks-4.png"
           alt="Bricks"
           fill
+          sizes="100vw"
           className="object-cover"
         />
 
@@ -80,6 +81,7 @@ export default function BricksPage() {
                   src={img}
                   alt={`bricks-${index}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </motion.div>

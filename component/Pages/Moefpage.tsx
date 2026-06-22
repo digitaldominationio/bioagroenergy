@@ -29,6 +29,7 @@ export default function CompliancePage() {
           src="/img/education-4.png"
           alt="Compliance"
           fill
+          sizes="100vw"
           className="object-cover"
         />
 

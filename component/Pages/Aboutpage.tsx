@@ -161,6 +161,7 @@ export default function AboutPage() {
                     src="/img/carousel-2.jpg"
                     alt="About Background"
                     fill
+                    sizes="100vw"
                     priority
                     className="object-cover"
                 />
@@ -191,6 +192,7 @@ export default function AboutPage() {
                             src="/img/about.jpg"
                             alt="about"
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover rounded-lg"
                         />
                     </motion.div>
@@ -530,6 +532,7 @@ export default function AboutPage() {
                                         src={item.image}
                                         alt={item.title}
                                         fill
+                                        sizes="(max-width: 768px) 50vw, 25vw"
                                         className="object-cover group-hover:scale-110 transition duration-500"
                                     />
 

@@ -12,6 +12,7 @@ export default function EthanolPage() {
           src="/img/carousel-1.jpg"
           alt="Ethanol"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -69,6 +70,7 @@ export default function EthanolPage() {
                   src={img}
                   alt="Ethanol"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover hover:scale-110 transition duration-500"
                 />
               </motion.div>

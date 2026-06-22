@@ -95,6 +95,7 @@ function Logo({ src }: { src: string }) {
         src={src}
         alt="Partner Logo"
         fill
+        sizes="(max-width: 768px) 160px, 320px"
         className="object-contain p-4 transition-all duration-300"
       />
     </motion.div>
@@ -612,6 +613,7 @@ export default function HeroCarousel() {
                     src={item.image}
                     alt={item.title}
                     fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover group-hover:scale-110 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
@@ -716,6 +718,7 @@ export default function HeroCarousel() {
               src="/img/distillery.jpg"
               alt="process"
               fill
+              sizes="100vw"
               className="object-cover"
             />
           </motion.div>
@@ -822,6 +825,7 @@ export default function HeroCarousel() {
                   src={src}
                   alt="gallery"
                   fill
+                  sizes="(max-width: 768px) 100vw, 300px"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
@@ -888,6 +892,7 @@ export default function HeroCarousel() {
                       src={member.image}
                       alt={member.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, 280px"
                       className="object-cover rounded-sm"
                     />
                   </motion.div>
@@ -1058,6 +1063,7 @@ export default function HeroCarousel() {
                   src={currentTestimonial.image}
                   alt={currentTestimonial.name}
                   fill
+                  sizes="100px"
                   className="rounded-full object-cover"
                 />
               </div>
