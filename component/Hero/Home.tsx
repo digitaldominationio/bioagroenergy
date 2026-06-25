@@ -87,7 +87,7 @@ const partners = [
 function Logo({ src }: { src: string }) {
   return (
     <motion.div
-      className="flex-shrink-0 w-40 h-32 md:w-80 md:h-60 relative"
+      className="shrink-0 w-40 h-32 md:w-80 md:h-60 relative"
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
@@ -201,7 +201,7 @@ function AnimatedWords({ text, delay = 0, className = "" }: { text: string; dela
       animate="visible"
     >
       {words.map((word, index) => (
-        <span key={index} className="overflow-hidden inline-block mr-[0.25em] py-[2px]">
+        <span key={index} className="overflow-hidden inline-block mr-[0.25em] py-0.5">
           <motion.span
             className="inline-block"
             variants={child}
@@ -364,7 +364,7 @@ export default function HeroCarousel() {
   return (
     <>
       {/* Hero Section - Split layout with text on left and image on right */}
-      <section className="relative w-full h-[65vh] md:h-[80vh] min-h-[500px] md:min-h-[650px] overflow-hidden bg-white mt-10 ">
+      <section className="relative w-full h-[65vh] md:h-[80vh] min-h-125 md:min-h-162.5 overflow-hidden bg-white mt-10 ">
         <AnimatePresence mode="wait">
           {slides.map((slide, index) => (
             index === current && (
@@ -414,7 +414,7 @@ export default function HeroCarousel() {
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ delay: 0.45, duration: 0.8, type: "spring", stiffness: 80 }}
-                      className="relative w-full h-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] border-4 md:border-8 border-white bg-white aspect-[4/3] md:aspect-auto max-h-[45vh] md:max-h-[75dvh]"
+                      className="relative w-full h-full rounded-2xl md:rounded-4xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] border-4 md:border-8 border-white bg-white aspect-4/3 md:aspect-auto max-h-[45vh] md:max-h-[75dvh]"
                     >
                       <Image
                         src={slide.image}
@@ -679,7 +679,7 @@ export default function HeroCarousel() {
                     alt="Bricks Product"
                     width={1200}
                     height={600}
-                    className="w-full h-[220px] md:h-[420px] object-cover hover:scale-105 transition duration-500"
+                    className="w-full h-55 md:h-105 object-cover hover:scale-105 transition duration-500"
                   />
                 </div>
                 <div
@@ -712,7 +712,7 @@ export default function HeroCarousel() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true, amount: 0.3 }}
-            className="w-full h-[300px] md:h-[1000px] relative rounded-xl overflow-hidden"
+            className="w-full h-75 md:h-250 relative rounded-xl overflow-hidden"
           >
             <Image
               src="/img/distillery.jpg"
@@ -727,7 +727,7 @@ export default function HeroCarousel() {
 
       {/* Partners Section */}
       <section className="w-full py-10 md:py-16 bg-gray-50 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 text-center">
+        <div className="max-w-350 mx-auto px-4 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -739,8 +739,8 @@ export default function HeroCarousel() {
           </motion.h2>
 
           <div className="relative overflow-hidden w-full">
-            <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-linear-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-linear-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
 
             <motion.div
               className="flex w-max"
@@ -817,7 +817,7 @@ export default function HeroCarousel() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="min-w-[280px] h-[200px] relative rounded-lg overflow-hidden group cursor-pointer"
+                className="min-w-70 h-50 relative rounded-lg overflow-hidden group cursor-pointer"
                 onClick={() => setSelected(src)}
                 whileHover={{ scale: 1.05 }}
               >
@@ -874,7 +874,7 @@ export default function HeroCarousel() {
           >
             <p className="text-green-500 tracking-[4px] text-sm uppercase">Team</p>
             <h2 className="text-3xl md:text-5xl font-bold">Meet The Directors</h2>
-            <div className="w-20 h-[2px] bg-blue-500 mx-auto mt-4"></div>
+            <div className="w-20 h-0.5 bg-blue-500 mx-auto mt-4"></div>
           </motion.div>
           <div className="space-y-32">
             {team.map((member, i) => {
@@ -886,7 +886,7 @@ export default function HeroCarousel() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    className={`relative w-[280px] h-[320px] z-10 shadow-xl ${isEven ? "md:translate-x-20" : "md:-translate-x-20"}`}
+                    className={`relative w-70 h-80 z-10 shadow-xl ${isEven ? "md:translate-x-20" : "md:-translate-x-20"}`}
                   >
                     <Image
                       src={member.image}
@@ -901,10 +901,10 @@ export default function HeroCarousel() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    className={`z-20 bg-[#dfe3ea] w-[280px] p-8 text-center shadow-lg border-t-4 border-blue-500
+                    className={`z-20 bg-[#dfe3ea] w-70 p-8 text-center shadow-lg border-t-4 border-blue-500
                     md:absolute md:top-1/2 md:-translate-y-1/2 
                     ${isEven ? "md:left-[15%]" : "md:right-[15%]"}
-                    mt-[-40px] md:mt-0`}
+                    -mt-10 md:mt-0`}
                   >
                     <h3 className="font-bold text-lg text-gray-800">{member.name}</h3>
                     <p className="text-blue-600 italic text-sm mb-3">{member.role}</p>
@@ -946,13 +946,13 @@ export default function HeroCarousel() {
             <h1 className="text-4xl md:text-5xl font-bold text-[#2A4365]">
               You Should Know
             </h1>
-            <div className="relative w-40 h-[2px] bg-blue-950 mx-auto mt-4">
-              <div className="absolute top-[4px] left-1/4 right-1/4 h-[2px] bg-blue-950 rounded-full"></div>
+            <div className="relative w-40 h-0.5 bg-blue-950 mx-auto mt-4">
+              <div className="absolute top-1 left-1/4 right-1/4 h-0.5 bg-blue-950 rounded-full"></div>
             </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-blue-950 -translate-x-1/2"></div>
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-950 -translate-x-1/2"></div>
 
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -1058,7 +1058,7 @@ export default function HeroCarousel() {
               transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <div className="relative w-[100px] h-[100px] mx-auto mb-4">
+              <div className="relative w-25 h-25 mx-auto mb-4">
                 <Image
                   src={currentTestimonial.image}
                   alt={currentTestimonial.name}

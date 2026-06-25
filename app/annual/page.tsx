@@ -4,7 +4,7 @@ import Image from "next/image";
 function page() {
   return (
     <>
-     <section className="relative w-full h-[400px] flex items-center justify-center">
+     <section className="relative w-full h-100 flex items-center justify-center">
             <Image
               src="/img/bricks-4.png"
               alt="Compliance"
