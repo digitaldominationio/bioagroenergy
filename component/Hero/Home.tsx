@@ -364,7 +364,7 @@ export default function HeroCarousel() {
   return (
     <>
       {/* Hero Section - Full-width Banner Carousel */}
-      <section className="relative w-full aspect-[1024/731] lg:aspect-auto lg:h-screen overflow-hidden bg-white mt-10 ">
+      <section className="relative w-full aspect-[1024/731] overflow-hidden bg-white mt-10 ">
         <AnimatePresence mode="wait">
           {slides.map((slide, index) => (
             index === current && (
@@ -557,7 +557,7 @@ export default function HeroCarousel() {
             </h6>
             <h1 className="text-3xl md:text-5xl font-bold">What We Do.</h1>
             <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-              Sustainable bioenergy solutions driving India's green future & rural prosperity
+              Sustainable bioenergy solutions driving India&apos;s green future &amp; rural prosperity
             </p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
