@@ -18,9 +18,9 @@ const serviceDetails: Record<string, { title: string; description: string }> = {
     ethanol: {
         title: "Ethanol – Green Biofuel",
         description: `Ethanol Production Capacity:
-The Company’s ethanol production capacity of 200 KLPD enables it to meet the requirements of the Govt’s 20% blending programme by 2025.
+The Company's ethanol production capacity of 200 KLPD enables it to meet the requirements of the Govt's 20% blending programme by 2025.
 Production Process:
-Our ethanol production process is based on cutting-edge technology and adheres to the highest industry standards. We utilize locally sourced damaged/broken rice and maize as our primary feedstock, ensuring a sustainable and reliable source of raw material. Ethanol, also known as ethyl alcohol, is a renewable biofuel produced by fermenting the sugars found in biomass such as corn, sugarcane, or cellulosic feedstocks. Bio Agro Energy Private Limited harnesses the rich agricultural heritage of Odisha by using broken/damaged rice as the primary feedstock for ethanol production. This approach aligns perfectly with the State’s rice cultivation industry, ensuring a stable and locally sourced raw material supply, thereby increasing the income of rice growers substantially It is a key component of the government's ethanol blending program, aiming to reduce carbon emissions and promote energy independence. Ethanol is primarily used as a fuel additive to gasoline, enhancing octane levels and reducing harmful emissions. It also finds applications in various industries, including pharmaceuticals, cosmetics, and beverages`,
+Our ethanol production process is based on cutting-edge technology and adheres to the highest industry standards. We utilize locally sourced damaged/broken rice and maize as our primary feedstock, ensuring a sustainable and reliable source of raw material. Ethanol, also known as ethyl alcohol, is a renewable biofuel produced by fermenting the sugars found in biomass such as corn, sugarcane, or cellulosic feedstocks. Bio Agro Energy Private Limited harnesses the rich agricultural heritage of Odisha by using broken/damaged rice as the primary feedstock for ethanol production. This approach aligns perfectly with the State's rice cultivation industry, ensuring a stable and locally sourced raw material supply, thereby increasing the income of rice growers substantially It is a key component of the government's ethanol blending program, aiming to reduce carbon emissions and promote energy independence. Ethanol is primarily used as a fuel additive to gasoline, enhancing octane levels and reducing harmful emissions. It also finds applications in various industries, including pharmaceuticals, cosmetics, and beverages`,
     },
     ddgs: {
         title: "DDGS – Distillers Dried Grains with Solubles",
@@ -308,171 +308,319 @@ export default function AboutPage() {
                 )}
             </AnimatePresence>
 
-            {/* ================= NEW CO₂ GAS SECTION ================= */}
-        <section className="py-4 sm:py-8 md:py-16 lg:py-20 bg-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInUp}
-            className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden border border-gray-100"
-        >
-            <div className="flex flex-col lg:grid lg:grid-cols-[1.1fr_1fr]">
+            {/* ================= LOGISTICS SECTION ================= */}
+            <section className="py-20 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-6">
+                    {/* Section Header */}
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="text-center mb-12"
+                    >
+                        <h6 className="uppercase text-green-500 tracking-[4px] mb-2 text-xs md:text-sm font-semibold">
+                            Logistics
+                        </h6>
+                        <h1 className="text-3xl md:text-5xl font-bold text-gray-800 tracking-tight leading-tight">
+                            Powering Logistics with Our Own Fleet
+                        </h1>
+                        <p className="text-gray-500 max-w-3xl mx-auto mt-4 font-normal text-[14px] md:text-base">
+                            With a dedicated fleet of 11 specialized ethanol tankers, Bio Agro Energy ensures safe, 
+                            reliable, and efficient transportation across its supply network.
+                        </p>
+                    </motion.div>
 
-                {/* Left Side - Image */}
-                <motion.div
-                    variants={fadeInLeft}
-                    className="flex items-center justify-center bg-white px-3 py-2 sm:px-4 sm:py-4 md:p-8 lg:p-10"
-                >
-                    <div className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl lg:max-w-full mx-auto">
+                    {/* Banner Image - Picture7.jpg */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-lg mb-12"
+                    >
                         <Image
-                            src="/img/co2-gas-banner.jpeg"
-                            alt="CO2 Gas - High Purity Industrial Supply"
-                            width={800}
-                            height={1000}
-                            priority
-                            className="w-full h-auto object-contain rounded-lg"
-                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 45vw"
+                            src="/img/Picture7.jpg"
+                            alt="Logistics Fleet - Ethanol Tankers"
+                            fill
+                            className="object-cover"
+                            sizes="100vw"
                         />
-                    </div>
-                </motion.div>
-
-                {/* Right Side - Content */}
-                <motion.div
-                    variants={fadeInRight}
-                    className="px-4 py-5 sm:px-6 sm:py-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center"
-                >
-                    {/* Badge */}
-                    <div className="mb-3">
-                        <span className="inline-block text-green-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-green-50 px-3 py-1 rounded-full">
-                            Premium Quality
-                        </span>
-                    </div>
-
-                    {/* Heading */}
-                    <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight mb-4">
-                        High Purity{" "}
-                        <span className="text-green-600">
-                            CO₂ Gas
-                        </span>
-                    </h2>
-
-                    {/* Description */}
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                        Premium quality CO₂ gas for diverse industrial
-                        applications with consistent purity and dependable
-                        supply. Perfect for beverage carbonation, welding,
-                        fire safety systems, and chemical processing.
-                    </p>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
-                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
-                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
-                                &gt;99.9%
-                            </div>
-                            <div className="text-xs sm:text-sm text-gray-500">
-                                Purity
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                            <div className="text-center text-white px-6">
+                                <h3 className="text-2xl md:text-4xl font-bold mb-2">Our Fleet</h3>
+                                <p className="text-sm md:text-lg">11 specialized ethanol tankers powering India's green fuel future</p>
                             </div>
                         </div>
+                    </motion.div>
 
-                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
-                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
-                                35 TPD
-                            </div>
-                            <div className="text-xs sm:text-sm text-gray-500">
-                                Daily Capacity
-                            </div>
-                        </div>
-
-                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
-                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
-                                Pan India
-                            </div>
-                            <div className="text-xs sm:text-sm text-gray-500">
-                                Delivery Network
-                            </div>
-                        </div>
-
-                        <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
-                            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
-                                Bulk/Cylinder
-                            </div>
-                            <div className="text-xs sm:text-sm text-gray-500">
-                                Flexible Supply
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Details */}
-                    <div className="space-y-3 text-xs sm:text-sm text-gray-600 border-t pt-4">
-                        <div className="flex items-start gap-2">
-                            <span className="text-green-500 mt-0.5 flex-shrink-0">
-                                ✓
-                            </span>
-                            <span>
-                                <strong className="text-gray-700">
-                                    Industries:
-                                </strong>{" "}
-                                Beverage, Steel, Foundries, Welding,
-                                Fire Safety, Chemical, Cold Storage,
-                                Food Processing
-                            </span>
-                        </div>
-
-                        <div className="flex items-start gap-2">
-                            <span className="text-green-500 flex-shrink-0">
-                                ✓
-                            </span>
-                            <span>
-                                <strong className="text-gray-700">
-                                    Contact:
-                                </strong>{" "}
-                                <a
-                                    href="tel:9937091063"
-                                    className="hover:text-green-600"
-                                >
-                                    RN PANDA – 9937091063
-                                </a>
-                            </span>
-                        </div>
-
-                        <div className="flex items-start gap-2">
-                            <span className="text-green-500 flex-shrink-0">
-                                ✓
-                            </span>
-                            <span>
-                                <strong className="text-gray-700">
-                                    Email:
-                                </strong>{" "}
-                                <a
-                                    href="mailto:purchase.ho@bioagroenergy.in"
-                                    className="hover:text-green-600 break-all"
-                                >
-                                    purchase.ho@bioagroenergy.in
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-
-                    {/* Button */}
-                    <div className="mt-6">
-                        <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => openServiceModal("co2")}
-                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+                    {/* Two Column Layout - Image & Content side by side */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-12">
+                        {/* Left Column - Picture6.png */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg"
                         >
-                            View CO₂ Specifications →
-                        </motion.button>
-                    </div>
-                </motion.div>
+                            <Image
+                                src="/img/Picture6.png"
+                                alt="Bio Agro Energy Logistics"
+                                fill
+                                className="object-contain bg-white"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                        </motion.div>
 
-            </div>
-        </motion.div>
-    </div>
-</section>
+                        {/* Right Column - Features List */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="flex flex-col justify-center"
+                        >
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                                Logistics Capabilities
+                            </h3>
+                            
+                            <div className="space-y-4">
+                                {[
+                                    { icon: "🚛", text: "Our fleet comprises 10 high-capacity 40 KL tankers and 1 versatile 25 KL tanker, enabling optimized load management and flexible delivery operations." },
+                                    { icon: "🌐", text: "Pan-Regional Connectivity - Strong connectivity across regions for efficient & reliable service." },
+                                    { icon: "⏱️", text: "On-Time Delivery - Timely deliveries, every time, everywhere." },
+                                    { icon: "🛡️", text: "Safe Handling - Strict safety protocols ensuring secure handling at every step." },
+                                    { icon: "🔗", text: "Supply Chain - Integrated supply chain management for seamless operations." },
+                                    { icon: "📦", text: "Distribution - Pan-India distribution network ensuring wide product reach." },
+                                ].map((item, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+                                    >
+                                        <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                                        <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                                            {item.text}
+                                        </p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Fleet Stats Cards */}
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12"
+                    >
+                        {[
+                            { number: "11", label: "Total Tankers", icon: "🚛" },
+                            { number: "10", label: "40 KL Tankers", icon: "🛢️" },
+                            { number: "1", label: "25 KL Tanker", icon: "🛢️" },
+                            { number: "Pan-India", label: "Delivery Network", icon: "📍" },
+                        ].map((stat, index) => (
+                            <motion.div
+                                key={index}
+                                variants={staggerItem}
+                                className="bg-white rounded-xl shadow-md p-4 md:p-6 text-center border border-gray-100 hover:shadow-lg transition-shadow"
+                            >
+                                <div className="text-3xl md:text-4xl mb-2">{stat.icon}</div>
+                                <div className="text-xl md:text-3xl font-bold text-green-600">{stat.number}</div>
+                                <div className="text-xs md:text-sm text-gray-600 font-medium">{stat.label}</div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Bottom Description */}
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100"
+                    >
+                        <p className="text-gray-700 text-sm md:text-base leading-relaxed text-center max-w-4xl mx-auto">
+                            This in-house logistics capability reduces dependence on third-party transporters, 
+                            enhances supply chain reliability, minimizes delivery lead times, and ensures seamless 
+                            movement of ethanol to customers. By maintaining direct control over transportation, 
+                            we strengthen operational efficiency while delivering consistent and timely service.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ================= NEW CO₂ GAS SECTION ================= */}
+            <section className="py-4 sm:py-8 md:py-16 lg:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={fadeInUp}
+                        className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden border border-gray-100"
+                    >
+                        <div className="flex flex-col lg:grid lg:grid-cols-[1.1fr_1fr]">
+
+                            {/* Left Side - Image */}
+                            <motion.div
+                                variants={fadeInLeft}
+                                className="flex items-center justify-center bg-white px-3 py-2 sm:px-4 sm:py-4 md:p-8 lg:p-10"
+                            >
+                                <div className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl lg:max-w-full mx-auto">
+                                    <Image
+                                        src="/img/co2-gas-banner.jpeg"
+                                        alt="CO2 Gas - High Purity Industrial Supply"
+                                        width={800}
+                                        height={1000}
+                                        priority
+                                        className="w-full h-auto object-contain rounded-lg"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 45vw"
+                                    />
+                                </div>
+                            </motion.div>
+
+                            {/* Right Side - Content */}
+                            <motion.div
+                                variants={fadeInRight}
+                                className="px-4 py-5 sm:px-6 sm:py-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center"
+                            >
+                                {/* Badge */}
+                                <div className="mb-3">
+                                    <span className="inline-block text-green-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-green-50 px-3 py-1 rounded-full">
+                                        Premium Quality
+                                    </span>
+                                </div>
+
+                                {/* Heading */}
+                                <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight mb-4">
+                                    High Purity{" "}
+                                    <span className="text-green-600">
+                                        CO₂ Gas
+                                    </span>
+                                </h2>
+
+                                {/* Description */}
+                                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                                    Premium quality CO₂ gas for diverse industrial
+                                    applications with consistent purity and dependable
+                                    supply. Perfect for beverage carbonation, welding,
+                                    fire safety systems, and chemical processing.
+                                </p>
+
+                                {/* Stats */}
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
+                                    <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                                        <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
+                                            &gt;99.9%
+                                        </div>
+                                        <div className="text-xs sm:text-sm text-gray-500">
+                                            Purity
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                                        <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
+                                            35 TPD
+                                        </div>
+                                        <div className="text-xs sm:text-sm text-gray-500">
+                                            Daily Capacity
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                                        <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
+                                            Pan India
+                                        </div>
+                                        <div className="text-xs sm:text-sm text-gray-500">
+                                            Delivery Network
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-gray-50 py-3 px-2 sm:p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all">
+                                        <div className="text-lg sm:text-2xl md:text-3xl font-bold text-green-600">
+                                            Bulk/Cylinder
+                                        </div>
+                                        <div className="text-xs sm:text-sm text-gray-500">
+                                            Flexible Supply
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Details */}
+                                <div className="space-y-3 text-xs sm:text-sm text-gray-600 border-t pt-4">
+                                    <div className="flex items-start gap-2">
+                                        <span className="text-green-500 mt-0.5 flex-shrink-0">
+                                            ✓
+                                        </span>
+                                        <span>
+                                            <strong className="text-gray-700">
+                                                Industries:
+                                            </strong>{" "}
+                                            Beverage, Steel, Foundries, Welding,
+                                            Fire Safety, Chemical, Cold Storage,
+                                            Food Processing
+                                        </span>
+                                    </div>
+
+                                    <div className="flex items-start gap-2">
+                                        <span className="text-green-500 flex-shrink-0">
+                                            ✓
+                                        </span>
+                                        <span>
+                                            <strong className="text-gray-700">
+                                                Contact:
+                                            </strong>{" "}
+                                            <a
+                                                href="tel:9937091063"
+                                                className="hover:text-green-600"
+                                            >
+                                                RN PANDA – 9937091063
+                                            </a>
+                                        </span>
+                                    </div>
+
+                                    <div className="flex items-start gap-2">
+                                        <span className="text-green-500 flex-shrink-0">
+                                            ✓
+                                        </span>
+                                        <span>
+                                            <strong className="text-gray-700">
+                                                Email:
+                                            </strong>{" "}
+                                            <a
+                                                href="mailto:purchase.ho@bioagroenergy.in"
+                                                className="hover:text-green-600 break-all"
+                                            >
+                                                purchase.ho@bioagroenergy.in
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Button */}
+                                <div className="mt-6">
+                                    <motion.button
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        onClick={() => openServiceModal("co2")}
+                                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+                                    >
+                                        View CO₂ Specifications →
+                                    </motion.button>
+                                </div>
+                            </motion.div>
+
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
 
             {/* ================= SERVICES ================= */}
             <section className="py-20 bg-gray-50">

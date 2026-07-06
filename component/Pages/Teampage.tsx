@@ -4,26 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const team = [
-    {
-        name: "MR. SIBA NARAYAN SAMANTARAY",
-        role: "Managing Director & CEO",
-        desc: "Mr. Siba Narayan Samantaray is the Managing Director of Bio Agro Energy Private Limited, a Graduate Engineer with MBA in Finance & Personnel Management and also a Law Graduate. Holds more than 32 years experience in Distillery plants and other related plants.",
-        image: "/img/team-01.jpg",
-    },
-    {
-        name: "MR. PURANDARA BABU POTHUGUNTA",
-        role: "Director",
-        desc: "Mr. Purandara Babu Pothugunta is the Director of Bio Agro Energy Private Limited. He pursued a Master’s Degree in Public Administration and has over three decades of expertise in Public Administration, Hydro Power Companies and packaging industries.",
-        image: "/img/team-2.jpg",
-    },
-    {
-        name: "MR. ANUPAM PATNAIK",
-        role: "Director",
-        desc: "Mr. Anupam Patnaik is the Director of Bio Agro Energy Private Limited. He has experience in automobile industry, film production and media & advertising and holds leadership roles in major automobile dealerships.",
-        image: "/img/team-3.jpg",
-    },
+  {
+    name: "Siba Narayan Samantaray",
+    role: "Managing Director & CEO",
+    desc: "Mr. Siba Narayan Samantaray is the Managing Director of the Bio Agro Energy Pvt. Ltd.",
+    image: "/img/team-01.jpg",
+  },
+  {
+    name: "Purandara Babu Pothugunta",
+    role: "Director",
+    desc: "Mr. Purandara Babu Pothugunta is the Director of the Bio Agro Energy Pvt. Ltd.",
+    image: "/img/team-2.jpg",
+  },
+  {
+    name: "Anupam Patnaik",
+    role: "Director",
+    desc: "Mr. Anupam Patnaik is the Director of the Bio Agro Energy Pvt. Ltd.",
+    image: "/img/team-3.jpg",
+  },
 ];
 
 const testimonials = [
@@ -156,70 +157,151 @@ export default function Testimonial() {
                     </motion.div>
 
                     {/* Cards */}
-                    <motion.div
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
-                    >
-                        {team.map((member, index) => (
-                            <motion.div
-                                key={index}
-                                variants={staggerItem}
-                                whileHover="hover"
-                                initial="rest"
-                                animate="rest"
-                                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
-                            >
-                                {/* Image Container with Zoom Effect */}
-                                <motion.div 
-                                    variants={cardHover}
-                                    className="relative h-[450px] overflow-hidden"
+                    <div className="flex flex-col items-center gap-12 mt-12">
+                        {/* Row 1: Managing Director & CEO (centered) */}
+                        {team.filter(member => member.role.includes("Managing Director")).map((member) => {
+                            return (
+                                <motion.div
+                                    key={member.name}
+                                    variants={staggerItem}
+                                    whileHover={{ scale: 1.03, y: -8 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="bg-slate-100/90 hover:bg-slate-200/50 rounded-[32px] p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/60 flex flex-col items-center group w-full max-w-[380px]"
                                 >
-                                    <Image
-                                        src={member.image}
-                                        alt={member.name}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    {/* Overlay gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                                </motion.div>
+                                    {/* Circular Image Container */}
+                                    <div className="relative w-36 h-36 rounded-full overflow-hidden mb-6 bg-slate-200 border-4 border-white shadow-[0_10px_25px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                                        {member.image ? (
+                                            <Image
+                                                src={member.image}
+                                                alt={member.name}
+                                                fill
+                                                className="object-cover"
+                                                sizes="144px"
+                                            />
+                                        ) : (
+                                            <span className="text-slate-400 text-xs font-semibold">PHOTO</span>
+                                        )}
+                                    </div>
 
-                                {/* Content */}
-                                <motion.div 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="p-6"
-                                >
-                                    <h2 className="text-lg font-bold text-gray-900">
+                                    {/* Role */}
+                                    <p className="text-green-700 font-bold text-sm tracking-wider uppercase mb-1">
+                                        {member.role}
+                                    </p>
+
+                                    {/* Name */}
+                                    <h2 className="text-xl font-bold text-slate-800 mb-4">
                                         {member.name}
                                     </h2>
-                                    <motion.h3 
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        transition={{ delay: index * 0.1 + 0.1 }}
-                                        className="text-green-500 font-semibold mb-3"
-                                    >
-                                        {member.role}
-                                    </motion.h3>
-                                    <motion.p 
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        transition={{ delay: index * 0.1 + 0.2 }}
-                                        className="text-gray-600 text-sm leading-relaxed"
-                                    >
-                                        {member.desc}
-                                    </motion.p>
-                                </motion.div>
 
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                                    {/* Description */}
+                                    <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6 max-w-[240px] grow">
+                                        {member.desc}
+                                    </p>
+
+                                    {/* Social Links */}
+                                    <div className="flex justify-center gap-3 mt-auto">
+                                        <motion.a
+                                            whileHover={{ scale: 1.15, y: -2 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            href="#"
+                                            className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                                        >
+                                            <FaTwitter size={14} />
+                                        </motion.a>
+                                        <motion.a
+                                            whileHover={{ scale: 1.15, y: -2 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            href="#"
+                                            className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                                        >
+                                            <FaFacebook size={14} />
+                                        </motion.a>
+                                        <motion.a
+                                            whileHover={{ scale: 1.15, y: -2 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            href="#"
+                                            className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                                        >
+                                            <FaLinkedin size={14} />
+                                        </motion.a>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+
+                        {/* Row 2: Directors (side-by-side, centered) */}
+                        <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-12 w-full max-w-4xl">
+                            {team.filter(member => !member.role.includes("Managing Director")).map((member, i) => {
+                                return (
+                                    <motion.div
+                                        key={member.name}
+                                        variants={staggerItem}
+                                        whileHover={{ scale: 1.03, y: -8 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="bg-slate-100/90 hover:bg-slate-200/50 rounded-[32px] p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/60 flex flex-col items-center group w-full md:w-[350px] max-w-[380px]"
+                                    >
+                                        {/* Circular Image Container */}
+                                        <div className="relative w-36 h-36 rounded-full overflow-hidden mb-6 bg-slate-200 border-4 border-white shadow-[0_10px_25px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                                            {member.image ? (
+                                                <Image
+                                                    src={member.image}
+                                                    alt={member.name}
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="144px"
+                                                />
+                                            ) : (
+                                                <span className="text-slate-400 text-xs font-semibold">PHOTO</span>
+                                            )}
+                                        </div>
+
+                                        {/* Role */}
+                                        <p className="text-green-700 font-bold text-sm tracking-wider uppercase mb-1">
+                                            {member.role}
+                                        </p>
+
+                                        {/* Name */}
+                                        <h2 className="text-xl font-bold text-slate-800 mb-4">
+                                            {member.name}
+                                        </h2>
+
+                                        {/* Description */}
+                                        <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6 max-w-[240px] grow">
+                                            {member.desc}
+                                        </p>
+
+                                        {/* Social Links */}
+                                        <div className="flex justify-center gap-3 mt-auto">
+                                            <motion.a
+                                                whileHover={{ scale: 1.15, y: -2 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                href="#"
+                                                className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                                            >
+                                                <FaTwitter size={14} />
+                                            </motion.a>
+                                            <motion.a
+                                                whileHover={{ scale: 1.15, y: -2 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                href="#"
+                                                className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                                            >
+                                                <FaFacebook size={14} />
+                                            </motion.a>
+                                            <motion.a
+                                                whileHover={{ scale: 1.15, y: -2 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                href="#"
+                                                className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                                            >
+                                                <FaLinkedin size={14} />
+                                            </motion.a>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </div>
 
                 </div>
             </section>

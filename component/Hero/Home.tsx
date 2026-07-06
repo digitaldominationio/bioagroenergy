@@ -8,17 +8,17 @@ import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const slides = [
   {
-    image: "/img/carousel.jpeg",
+    image: "/img/hero-agro.jpg",
     title: "Bio Agro Energy Pvt. Ltd.",
     subtitle: "Powering Progress, Fueling the Future!",
   },
   {
-    image: "/img/carousel-1.png",
+    image: "/img/hero-grain.jpg",
     title: "Leading the way in Ethanol Manufacturing Technology.",
     subtitle: "Ethanol Plant",
   },
   {
-    image: "/img/carousel-2.jpg",
+    image: "/img/hero-sustainable.jpg",
     title: "Innovative Ethanol Solutions for a Better Tomorrow.",
     subtitle: "Ethanol Plant",
   },
@@ -161,7 +161,7 @@ const testimonials = [
 // Staggered word animation component
 function AnimatedWords({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
   const words = text.split(" ");
-  
+
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -169,7 +169,7 @@ function AnimatedWords({ text, delay = 0, className = "" }: { text: string; dela
       transition: { staggerChildren: 0.08, delayChildren: delay }
     }
   };
-  
+
   const child = {
     visible: {
       opacity: 1,
@@ -363,8 +363,8 @@ export default function HeroCarousel() {
 
   return (
     <>
-      {/* Hero Section - Split layout with text on left and image on right */}
-      <section className="relative w-full h-[65vh] md:h-[80vh] min-h-125 md:min-h-162.5 overflow-hidden bg-white mt-10 ">
+      {/* Hero Section - Full-width Banner Carousel */}
+      <section className="relative w-full aspect-[1024/731] lg:aspect-auto lg:h-screen overflow-hidden bg-white mt-10 ">
         <AnimatePresence mode="wait">
           {slides.map((slide, index) => (
             index === current && (
@@ -376,74 +376,47 @@ export default function HeroCarousel() {
                 transition={{ duration: 0.7 }}
                 className="absolute inset-0"
               >
-                <div className="w-full h-full flex flex-col md:flex-row">
-                  {/* Left Side - Text Content */}
-                  <div className="w-full md:w-[40%] h-[40%] md:h-full bg-white flex flex-col items-center md:items-start justify-center text-center md:text-left px-6 md:px-12 lg:px-16">
-                    <div className="max-w-xl">
-                      <div className="mb-4 flex justify-center md:justify-start">
-                        <AnimatedLetters
-                          text={slide.subtitle}
-                          delay={0.15}
-                          className="text-amber-500 text-xs sm:text-sm md:text-base uppercase tracking-[4px] sm:tracking-[5px] font-semibold"
-                        />
-                      </div>
-                      
-                      <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight select-none">
-                        <AnimatedWords
-                          text={slide.title}
-                          delay={0.35}
-                          className="justify-center md:justify-start"
-                        />
-                      </h1>
-                      
-                      {/* <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.7, duration: 0.6 }}
-                      >
-                        <button className="mt-6 sm:mt-8 inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-amber-500 hover:bg-amber-600 text-black font-semibold text-sm sm:text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 cursor-pointer">
-                          Learn More →
-                        </button>
-                      </motion.div> */}
-                    </div>
-                  </div>
-
-                  {/* Right Side - Image Box */}
-                  <div className="w-full md:w-[60%] h-[60%] md:h-full bg-white flex items-center justify-center p-4 md:p-8 lg:p-12">
-                    <motion.div
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.45, duration: 0.8, type: "spring", stiffness: 80 }}
-                      className="relative w-full h-full rounded-2xl md:rounded-4xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] border-4 md:border-8 border-white bg-white aspect-4/3 md:aspect-auto max-h-[45vh] md:max-h-[75dvh]"
-                    >
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        priority
-                        className="object-cover hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 90vw, 45vw"
-                      />
-                    </motion.div>
-                  </div>
+                <div className="relative w-full h-full">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    priority
+                    className="object-cover object-center"
+                    sizes="100vw"
+                  />
                 </div>
               </motion.div>
             )
           ))}
         </AnimatePresence>
 
-
+        {/* Chevron Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-green-600/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-sm active:scale-95 group cursor-pointer"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 group-hover:-translate-x-0.5 transition-transform" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-green-600/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-sm active:scale-95 group cursor-pointer"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-0.5 transition-transform" />
+        </button>
 
         {/* Dot Indicators */}
-        <div className="absolute bottom-5 sm:bottom-6 left-0 right-0 z-20 flex justify-center gap-2.5">
+        <div className="absolute bottom-3 md:bottom-5 left-0 right-0 z-20 flex justify-center gap-1.5 md:gap-2.5">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
+              className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${
                 current === i 
-                  ? "bg-amber-500 w-7 sm:w-8" 
-                  : "bg-gray-400 w-3 sm:w-4 hover:bg-gray-300"
+                  ? "bg-amber-500 w-6 md:w-8" 
+                  : "bg-gray-400 w-2 md:w-4 hover:bg-gray-300"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -715,7 +688,7 @@ export default function HeroCarousel() {
             className="w-full h-75 md:h-250 relative rounded-xl overflow-hidden"
           >
             <Image
-              src="/img/distillery.jpg"
+              src="/img/Picture5.png"
               alt="process"
               fill
               sizes="100vw"
@@ -876,56 +849,152 @@ export default function HeroCarousel() {
             <h2 className="text-3xl md:text-5xl font-bold">Meet The Directors</h2>
             <div className="w-20 h-0.5 bg-blue-500 mx-auto mt-4"></div>
           </motion.div>
-          <div className="space-y-32">
-            {team.map((member, i) => {
-              const isEven = i % 2 === 0;
+          <div className="flex flex-col items-center gap-12">
+            {team.filter(member => member.role === "Managing Director").map((member) => {
+              const roleDisplay = "Managing Director & CEO";
               return (
-                <div key={member.name} className="relative flex flex-col md:flex-row items-center justify-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    className={`relative w-70 h-80 z-10 shadow-xl ${isEven ? "md:translate-x-20" : "md:-translate-x-20"}`}
-                  >
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 280px"
-                      className="object-cover rounded-sm"
-                    />
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    className={`z-20 bg-[#dfe3ea] w-70 p-8 text-center shadow-lg border-t-4 border-blue-500
-                    md:absolute md:top-1/2 md:-translate-y-1/2 
-                    ${isEven ? "md:left-[15%]" : "md:right-[15%]"}
-                    -mt-10 md:mt-0`}
-                  >
-                    <h3 className="font-bold text-lg text-gray-800">{member.name}</h3>
-                    <p className="text-blue-600 italic text-sm mb-3">{member.role}</p>
-                    <p className="text-xs text-gray-600 mb-6 leading-relaxed">
-                      {member.desc}
-                    </p>
-                    <div className="flex justify-center gap-3">
-                      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="border border-blue-500 p-2 text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">
-                        <FaTwitter size={14} />
-                      </motion.div>
-                      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="border border-blue-500 p-2 text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">
-                        <FaFacebook size={14} />
-                      </motion.div>
-                      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="border border-blue-500 p-2 text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">
-                        <FaLinkedin size={14} />
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                </div>
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="bg-slate-100/90 hover:bg-slate-200/50 rounded-[32px] p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/60 flex flex-col items-center group w-full max-w-[380px]"
+                >
+                  {/* Circular Image Container */}
+                  <div className="relative w-36 h-36 rounded-full overflow-hidden mb-6 bg-slate-200 border-4 border-white shadow-[0_10px_25px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="144px"
+                      />
+                    ) : (
+                      <span className="text-slate-400 text-xs font-semibold">PHOTO</span>
+                    )}
+                  </div>
+
+                  {/* Role (as primary header like the mockup) */}
+                  <p className="text-green-700 font-bold text-sm tracking-wider uppercase mb-1">
+                    {roleDisplay}
+                  </p>
+
+                  {/* Name */}
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">
+                    {member.name}
+                  </h3>
+
+                  {/* Description / Introduction (Mockup style) */}
+                  <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6 max-w-[240px] grow">
+                    {member.desc}
+                  </p>
+
+                  {/* Social Links */}
+                  <div className="flex justify-center gap-3 mt-auto">
+                    <motion.a
+                      whileHover={{ scale: 1.15, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="#"
+                      className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                    >
+                      <FaTwitter size={14} />
+                    </motion.a>
+                    <motion.a
+                      whileHover={{ scale: 1.15, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="#"
+                      className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                    >
+                      <FaFacebook size={14} />
+                    </motion.a>
+                    <motion.a
+                      whileHover={{ scale: 1.15, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="#"
+                      className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                    >
+                      <FaLinkedin size={14} />
+                    </motion.a>
+                  </div>
+                </motion.div>
               );
             })}
+
+            {/* Row 2: Directors (side-by-side, centered) */}
+            <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-12 w-full max-w-4xl">
+              {team.filter(member => member.role !== "Managing Director").map((member, i) => {
+                return (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: i * 0.15 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="bg-slate-100/90 hover:bg-slate-200/50 rounded-[32px] p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/60 flex flex-col items-center group w-full md:w-[350px] max-w-[380px]"
+                  >
+                    {/* Circular Image Container */}
+                    <div className="relative w-36 h-36 rounded-full overflow-hidden mb-6 bg-slate-200 border-4 border-white shadow-[0_10px_25px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                      {member.image ? (
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover"
+                          sizes="144px"
+                        />
+                      ) : (
+                        <span className="text-slate-400 text-xs font-semibold">PHOTO</span>
+                      )}
+                    </div>
+
+                    {/* Role (as primary header like the mockup) */}
+                    <p className="text-green-700 font-bold text-sm tracking-wider uppercase mb-1">
+                      {member.role}
+                    </p>
+
+                    {/* Name */}
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">
+                      {member.name}
+                    </h3>
+
+                    {/* Description / Introduction (Mockup style) */}
+                    <p className="text-sm text-gray-500 font-medium leading-relaxed mb-6 max-w-[240px] grow">
+                      {member.desc}
+                    </p>
+
+                    {/* Social Links */}
+                    <div className="flex justify-center gap-3 mt-auto">
+                      <motion.a
+                        whileHover={{ scale: 1.15, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                        href="#"
+                        className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                      >
+                        <FaTwitter size={14} />
+                      </motion.a>
+                      <motion.a
+                        whileHover={{ scale: 1.15, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                        href="#"
+                        className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                      >
+                        <FaFacebook size={14} />
+                      </motion.a>
+                      <motion.a
+                        whileHover={{ scale: 1.15, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                        href="#"
+                        className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 cursor-pointer bg-white"
+                      >
+                        <FaLinkedin size={14} />
+                      </motion.a>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

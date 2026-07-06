@@ -147,7 +147,7 @@ export default function Header() {
           onMouseLeave={() => setHoveredLogo(false)}
         >
           <Image
-            src="/img/logo.png"
+            src="/img/logo-new.jpg"
             alt="logo"
             width={100}
             height={50}
