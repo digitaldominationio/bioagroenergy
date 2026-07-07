@@ -8,17 +8,17 @@ import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const slides = [
   {
-    image: "/img/hero-agro.jpg",
+    image: "/img/WEBSITE 2.png",
     title: "Bio Agro Energy Pvt. Ltd.",
     subtitle: "Powering Progress, Fueling the Future!",
   },
   {
-    image: "/img/hero-grain.jpg",
+    image: "/img/website photo 1.png",
     title: "Leading the way in Ethanol Manufacturing Technology.",
     subtitle: "Ethanol Plant",
   },
   {
-    image: "/img/hero-sustainable.jpg",
+    image: "/img/plant photo.png",
     title: "Innovative Ethanol Solutions for a Better Tomorrow.",
     subtitle: "Ethanol Plant",
   },
@@ -364,65 +364,67 @@ export default function HeroCarousel() {
   return (
     <>
       {/* Hero Section - Full-width Banner Carousel */}
-      <section className="relative w-full aspect-[1024/731] overflow-hidden bg-white mt-10 ">
-        <AnimatePresence mode="wait">
-          {slides.map((slide, index) => (
-            index === current && (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7 }}
-                className="absolute inset-0"
-              >
-                <div className="relative w-full h-full">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    priority
-                    className="object-cover object-center"
-                    sizes="100vw"
-                  />
-                </div>
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
+     <section className="relative w-full overflow-hidden bg-white mt-10">
+  <div className="relative w-full aspect-[1024/731] sm:aspect-[1024/731]">
+    <AnimatePresence mode="wait">
+      {slides.map((slide, index) => (
+        index === current && (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+            className="absolute inset-0"
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="100vw"
+              />
+            </div>
+          </motion.div>
+        )
+      ))}
+    </AnimatePresence>
 
-        {/* Chevron Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-green-600/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-sm active:scale-95 group cursor-pointer"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 group-hover:-translate-x-0.5 transition-transform" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-green-600/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-sm active:scale-95 group cursor-pointer"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-0.5 transition-transform" />
-        </button>
+    {/* Chevron Navigation Arrows */}
+    <button
+      onClick={prevSlide}
+      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-green-600/80 text-white p-1.5 sm:p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-sm active:scale-95 group cursor-pointer"
+      aria-label="Previous slide"
+    >
+      <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 group-hover:-translate-x-0.5 transition-transform" />
+    </button>
+    <button
+      onClick={nextSlide}
+      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-green-600/80 text-white p-1.5 sm:p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-sm active:scale-95 group cursor-pointer"
+      aria-label="Next slide"
+    >
+      <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 group-hover:translate-x-0.5 transition-transform" />
+    </button>
 
-        {/* Dot Indicators */}
-        <div className="absolute bottom-3 md:bottom-5 left-0 right-0 z-20 flex justify-center gap-1.5 md:gap-2.5">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${
-                current === i 
-                  ? "bg-amber-500 w-6 md:w-8" 
-                  : "bg-gray-400 w-2 md:w-4 hover:bg-gray-300"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+    {/* Dot Indicators */}
+    <div className="absolute bottom-2 sm:bottom-3 md:bottom-5 left-0 right-0 z-20 flex justify-center gap-1 sm:gap-1.5 md:gap-2.5">
+      {slides.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setCurrent(i)}
+          className={`h-1 rounded-full transition-all duration-300 ${
+            current === i
+              ? "bg-amber-500 w-3 sm:w-6 md:w-8"
+              : "bg-gray-400 w-1.5 sm:w-2 md:w-4 hover:bg-gray-300"
+          }`}
+          aria-label={`Go to slide ${i + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section id="about" className="relative w-full py-12 md:py-20 bg-gray-100 text-white overflow-hidden">
@@ -685,14 +687,14 @@ export default function HeroCarousel() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true, amount: 0.3 }}
-            className="w-full h-75 md:h-250 relative rounded-xl overflow-hidden"
+            className="w-full max-w-4xl mx-auto aspect-[16/9] relative rounded-xl overflow-hidden"
           >
             <Image
               src="/img/Picture5.png"
               alt="process"
               fill
-              sizes="100vw"
-              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 60vw"
+              className="object-contain"
             />
           </motion.div>
         </div>
